@@ -36,4 +36,12 @@ public class PaisesCor {
         url_Pais = nurl;
         coordenadasPais=ncoordenadasPais;
     }
+
+    public double [] getCoordenadasPais() {
+        return coordenadasPais;
+    }
+
+    public void setCoordenadasPais(double [] coordenadasPais) {
+        this.coordenadasPais = coordenadasPais;
+    }
 }
