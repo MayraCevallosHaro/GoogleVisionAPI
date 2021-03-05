@@ -65,10 +65,10 @@ public class PaisesCor {
 
 
             double [] datosRectangulo = new double[6];
-            datosRectangulo[0]=georectangle.getDouble("oeste");
-            datosRectangulo[1]=georectangle.getDouble("estre");
-            datosRectangulo[2]=georectangle.getDouble("norte");
-            datosRectangulo[3]=georectangle.getDouble("sur");
+            datosRectangulo[0]=georectangle.getDouble("norte");
+            datosRectangulo[1]=georectangle.getDouble("sur");
+            datosRectangulo[2]=georectangle.getDouble("este");
+            datosRectangulo[3]=georectangle.getDouble("oeste");
 
             datosRectangulo[4]=geopt.getDouble(0);
             datosRectangulo[5]=geopt.getDouble(1);
