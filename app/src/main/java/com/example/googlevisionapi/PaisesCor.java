@@ -19,4 +19,21 @@ public class PaisesCor {
     public void setNombrePais(String nombrePais) {
         this.nombrePais = nombrePais;
     }
+    public void setNombrePais(String nombrePais) {
+        this.nombrePais = nombrePais;
+    }
+
+    public String getUrl_Pais() {
+        return url_Pais;
+    }
+
+    public void setUrl_Pais(String url_Pais) {
+        this.url_Pais = url_Pais;
+    }
+
+    public Paises(String npais,String nurl,double [] ncoordenadasPais) throws JSONException {
+        nombrePais = npais;
+        url_Pais = nurl;
+        coordenadasPais=ncoordenadasPais;
+    }
 }
