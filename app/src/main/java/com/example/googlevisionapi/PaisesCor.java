@@ -44,4 +44,41 @@ public class PaisesCor {
     public void setCoordenadasPais(double [] coordenadasPais) {
         this.coordenadasPais = coordenadasPais;
     }
+
+    public static ArrayList<Paises> JsonObjectsBuild(JSONObject datos) throws JSONException {
+        ArrayList<Paises> paises = new ArrayList<>();
+
+        JSONObject results=datos.getJSONObject("Results");
+        JSONArray namesBD=results.names();
+
+        for (int i = 0; i < namesBD.length(); i++) {
+
+            String namebd= namesBD.getString(i);
+            JSONObject datosBD=results.getJSONObject(namebd);
+            String nombrePais=datosBD.getString("Name");
+            JSONObject countryCodes=datosBD.getJSONObject("CountryCodes");
+            String iso2=countryCodes.getString("iso2");
+
+            JSONObject georectangle=datosBD.getJSONObject("GeoRectangle");
+            JSONArray geopt=datosBD.getJSONArray("GeoPt");
+
+
+
+            double [] datosRectangulo = new double[6];
+            datosRectangulo[0]=georectangle.getDouble("oeste");
+            datosRectangulo[1]=georectangle.getDouble("estre");
+            datosRectangulo[2]=georectangle.getDouble("norte");
+            datosRectangulo[3]=georectangle.getDouble("sur");
+
+            datosRectangulo[4]=geopt.getDouble(0);
+            datosRectangulo[5]=geopt.getDouble(1);
+
+
+
+
+            paises.add(new Paises(nombrePais,"http://www.geognos.com/api/en/countries/flag/"+iso2+".png",datosRectangulo));
+        }
+
+        return paises;
+    }
 }
