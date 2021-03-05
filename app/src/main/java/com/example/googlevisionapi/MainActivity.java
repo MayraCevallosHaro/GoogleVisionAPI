@@ -8,10 +8,6 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -58,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private static final int CAMERA_REQUEST_CODE = 102;
 
     //AIzaSyB5MkIB5lNnQH1kC1tZ3ATeEsv7z66moKs
-    private static final String CLOUD_VISION_API_KEY = "AIzaSyA40SjWGfxwULJNqVjkVvw3rSgWLNTc4m0";
+    private static final String CLOUD_VISION_API_KEY = "AIzaSyB5MkIB5lNnQH1kC1tZ3ATeEsv7z66moKs";
     @BindView(R.id.takePicture)
     Button takePicture;
 
@@ -114,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private int checkPermission(String permission) {
-        return ContextCompat.checkSelfPermission(this, permission);
+      return ContextCompat.checkSelfPermission(this, permission);
     }
 
     private void makeRequest(String permission) {
@@ -198,16 +194,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }.execute();
     }
 
-    @NonNull
     private Image getImageEncodeImage(Bitmap bitmap) {
         Image base64EncodedImage = new Image();
-        // Convert the bitmap to a JPEG
-        // Just in case it's a format that Android understands but Cloud Vision
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 90, byteArrayOutputStream);
         byte[] imageBytes = byteArrayOutputStream.toByteArray();
 
-        // Base64 encode the JPEG
+
         base64EncodedImage.encodeContent(imageBytes);
         return base64EncodedImage;
     }
