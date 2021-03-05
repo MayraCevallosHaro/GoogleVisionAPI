@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private static final String TAG = "MainActivity";
     private static final int RECORD_REQUEST_CODE = 101;
     private static final int CAMERA_REQUEST_CODE = 102;
+
+    //AIzaSyB5MkIB5lNnQH1kC1tZ3ATeEsv7z66moKs
     private static final String CLOUD_VISION_API_KEY = "AIzaSyA40SjWGfxwULJNqVjkVvw3rSgWLNTc4m0";
     @BindView(R.id.takePicture)
     Button takePicture;
