@@ -85,6 +85,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         feature.setType(visionAPI[0]);
         feature.setMaxResults(10);
 
+        Button takePicture2 = findViewById(R.id.info);
+        takePicture2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (v.getContext(), Informacion.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+
         spinnerVisionAPI.setOnItemSelectedListener(this);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, visionAPI);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
